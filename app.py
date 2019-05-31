@@ -1,10 +1,14 @@
 import aspectlib
 
-from aspect.aspect import checks_user, log
+#Aspect
+from aspect import check_if_user_exists, log
+
+#Class
 from services.manager import ResourceManager
 from services.users import User
 
-aspectlib.weave(ResourceManager, checks_user)
+#jointPoint
+aspectlib.weave(ResourceManager, check_if_user_exists)
 aspectlib.weave(ResourceManager, log)
 
 user1 = User("toto", "xxx")
